@@ -1,0 +1,72 @@
+# 币种走势监测配置文件（带代理配置示例）
+
+# 监测的币种列表
+symbols:
+  - "BTCUSDT"
+  - "ETHUSDT"
+  - "BNBUSDT"
+
+# 监测的时间周期（分钟）
+timeframes:
+  - "1m"
+  - "5m"
+  - "15m"
+  - "1h"
+  - "4h"
+  - "1d"
+
+# 走势分析参数
+analysis:
+  # 布林带参数
+  bollinger_bands:
+    period: 20
+    std_dev: 2
+  
+  # RSI参数
+  rsi:
+    period: 14
+    overbought: 70
+    oversold: 30
+  
+  # 移动平均线参数
+  moving_averages:
+    short_period: 10
+    long_period: 30
+  
+  # 震荡判断参数
+  sideways_threshold: 0.02  # 2%的价格波动范围
+  trend_confirmation_periods: 3  # 连续3个周期确认趋势
+
+# 告警设置
+alerts:
+  console_output: true
+  log_file: "alerts.log"
+  email_notifications: false
+  webhook_url: null
+
+# API设置（使用代理）
+api:
+  base_url: null  # 留空使用默认的多端点配置
+  use_proxy: true  # 启用代理
+  proxy_config:  # 代理配置
+    http: "http://127.0.0.1:7890"   # 替换为你的代理地址和端口
+    https: "http://127.0.0.1:7890"  # 替换为你的代理地址和端口
+  rate_limit: 1200  # 每分钟请求限制
+  
+# 备用数据源配置
+alternative_data_sources:
+  enabled: true
+  # 当币安API不可用时，自动使用CoinGecko等免费API
+  
+# 监测间隔（秒）
+monitoring_interval: 60
+
+# 使用说明：
+# 1. 如果你有代理服务器，将 use_proxy 设为 true，并配置正确的代理地址
+# 2. 如果没有代理，将 use_proxy 设为 false，系统会尝试多个币安API端点
+# 3. 如果所有币安端点都不可用，系统会自动切换到备用数据源（CoinGecko等）
+# 4. 常见代理端口：
+#    - Clash: 7890
+#    - V2Ray: 1080
+#    - Shadowsocks: 1080
+#    - 请根据你的代理软件配置相应端口

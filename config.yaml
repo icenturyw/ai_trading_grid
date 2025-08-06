@@ -1,0 +1,62 @@
+# 币种走势监测配置文件
+
+# 监测的币种列表
+symbols:
+  - "BTCUSDT"
+  - "ETHUSDT"
+  - "BNBUSDT"
+
+# 监测的时间周期（分钟）
+timeframes:
+  - "1m"
+  - "5m"
+  - "15m"
+  - "1h"
+  - "4h"
+  - "1d"
+
+# 走势分析参数
+analysis:
+  # 布林带参数
+  bollinger_bands:
+    period: 20
+    std_dev: 2
+  
+  # RSI参数
+  rsi:
+    period: 14
+    overbought: 70
+    oversold: 30
+  
+  # 移动平均线参数
+  moving_averages:
+    short_period: 10
+    long_period: 30
+  
+  # 震荡判断参数
+  sideways_threshold: 0.02  # 2%的价格波动范围
+  trend_confirmation_periods: 3  # 连续3个周期确认趋势
+
+# 告警设置
+alerts:
+  console_output: true
+  log_file: "alerts.log"
+  email_notifications: false
+  webhook_url: null
+
+# API设置
+api:
+  base_url: null  # 留空使用默认的多端点配置
+  use_proxy: false  # 是否使用代理
+  proxy_config:  # 代理配置（如果use_proxy为true）
+    http: "http://127.0.0.1:7890"
+    https: "http://127.0.0.1:7890"
+  rate_limit: 1200  # 每分钟请求限制
+
+# 备用数据源配置（如果币安API完全不可用）
+alternative_data_sources:
+  enabled: false
+  # 可以添加其他交易所API或数据提供商
+  
+# 监测间隔（秒）
+monitoring_interval: 60
