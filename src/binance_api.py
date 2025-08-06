@@ -21,10 +21,6 @@ class BinanceAPI:
         if base_url is None:
             # 优先使用币安国际版API，如果不可用则尝试其他端点
             self.api_endpoints = [
-                "https://api.binance.com",
-                "https://api1.binance.com",
-                "https://api2.binance.com",
-                "https://api3.binance.com",
                 "https://data-api.binance.vision"  # 币安数据API，通常更稳定
             ]
             self.base_url = self.api_endpoints[0]
