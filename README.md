@@ -3,10 +3,9 @@
 [![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/icenturyw/ai_trading_grid.svg)](https://github.com/icenturyw/ai_trading_grid/stargazers)
+[![CI](https://github.com/icenturyw/ai_trading_grid/actions/workflows/test.yml/badge.svg)](https://github.com/icenturyw/ai_trading_grid/actions/workflows/test.yml)
 
 一个基于多数据源的加密货币走势监测应用，能够监测多个时间周期，识别震荡和单边走势的变化并发出告警。专门针对网络访问限制进行了优化，支持代理和备用数据源。
-
-![Demo](https://via.placeholder.com/800x400/1e1e1e/ffffff?text=Crypto+Trend+Monitor+Demo)
 
 ## 📋 目录
 
